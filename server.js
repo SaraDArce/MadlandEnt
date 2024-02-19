@@ -7,24 +7,17 @@ const app = express();
 // Port in which the server will run on
 const PORT = process.env.PORT || 8000;
 
+const cors = require("cors");
+
 const artistRouter = require("./routes/artists");
-
-// artists
-app.use("/artists", artistRouter);
-
-// Requiring example router
-// const exampleRouter = require('./routes/exampleRoute')
-
-// const middlewares = require('./middleware/exampleMiddleware')
 
 // Configuring the server to accept and parse JSON data.
 app.use(express.json());
+app.use(cors());
 
-// Configuring the server to run the middleware
-// app.use(middlewares.middleware)
-
-// Connecting the router to the server
-// app.use('/', exampleRouter)
+// artists
+app.use("/artists", artistRouter);
+// app.use("/register", regFormRouter);
 
 // Calling the listen function telling the server to listen on port 3000
 app.listen(PORT, () => {

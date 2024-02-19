@@ -1,33 +1,43 @@
 const { Schema, model } = require("../config/db-connection");
 const artistSchema = new Schema(
   {
-    name: {
+    artist: {
       type: String,
       required: true,
       unique: true,
+    },
+    contact: {
+      type: String,
+      required: true,
+      unique: false,
     },
     phone: {
       type: String,
       required: true,
     },
-    // email: {
-    //   type: email,
-    //   required: true,
-    // },
+    email: {
+      type: String,
+      required: true,
+    },
     company: {
       type: String,
       required: false,
       unique: false,
     },
-    link: {
+    website: {
       type: String,
       required: false,
       unique: false,
     },
+    description: {
+      type: String,
+      required: true,
+      unique: true,
+    },
     password: {
       type: String,
       required: true,
-      unique: false,
+      // unique: false,
     },
     inquiry: {
       type: String,

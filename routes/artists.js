@@ -11,7 +11,7 @@ router.get("/", index);
 router.post("/", create);
 
 // Update artist
-// router.update("/:id", update);
+router.put("/:id", update);
 
 // Delete an artist entry
 router.delete("/:id", destroy);
