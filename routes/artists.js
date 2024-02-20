@@ -2,10 +2,18 @@ const express = require("express");
 const router = express.Router();
 
 // Grab the controller functions
-const { index, create, update, destroy } = require("../controllers/artists");
+const {
+  index,
+  getArtistByName,
+  create,
+  update,
+  destroy,
+} = require("../controllers/artists");
 
 // Get all artists
 router.get("/", index);
+
+router.get("/:artist", getArtistByName);
 
 // Create artist
 router.post("/", create);

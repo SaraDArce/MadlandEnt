@@ -44,6 +44,11 @@ const artistSchema = new Schema(
       required: false,
       unique: false,
     },
+    image: {
+      type: String,
+      required: false,
+      unique: false,
+    },
   },
   {
     timestamps: true,

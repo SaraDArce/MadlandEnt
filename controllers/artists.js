@@ -11,6 +11,17 @@ async function index(req, res) {
   }
 }
 
+async function getArtistByName(req, res) {
+  try {
+    const artistToGet = await Artist.findOne({ artist: req.params.artist });
+    if (artistToGet) {
+      res.status(202).send(artistToGet);
+    }
+  } catch (e) {
+    res.status(400).send(e);
+  }
+}
+
 async function create(req, res) {
   try {
     // req.body will have the info that the artist filled out on the frontend
@@ -27,7 +38,7 @@ async function update(req, res) {
   try {
     const artistToUpdate = await Artist.findByIdAndUpdate(req.params.id);
     if (artistToUpdate) {
-      res.status(202).send(updatedArtist);
+      res.status(202).send(artistToUpdate);
     }
   } catch (e) {
     res.status(400).send(e);
@@ -47,6 +58,7 @@ async function destroy(req, res) {
 
 module.exports = {
   index,
+  getArtistByName,
   create,
   update,
   destroy,
