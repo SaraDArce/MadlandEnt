@@ -10,13 +10,15 @@ const PORT = process.env.PORT || 8000;
 const cors = require("cors");
 
 const artistRouter = require("./routes/artists");
+const bookingFormRouter = require("./routes/bookingForm");
 
 // Configuring the server to accept and parse JSON data.
 app.use(express.json());
 app.use(cors());
 
-// artists
+// artists, bookingForm, regForm
 app.use("/artists", artistRouter);
+app.use("/bookingForm", bookingFormRouter);
 // app.use("/register", regFormRouter);
 
 // Calling the listen function telling the server to listen on port 3000
